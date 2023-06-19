@@ -100,6 +100,7 @@ class Net(nn.Module):
         miu = 0.2
         w = 0.001*torch.exp(0.05*t)
         #0.1*torch.exp(-0.05*t) for Case 1a
+        #Q * torch.exp(-((x - x0) ** 2 + (y-y0) ** 2) / (2 * sigma ** 2)) / ((2 * math.pi * sigma ** 2))  for 2D groundwater
         f = lossa(K * m_x + w - miu * h_t, 0 * h)
         return f
 
